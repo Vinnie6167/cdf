@@ -3,7 +3,11 @@
 # -l
 # prints the favorite directories
 cdf_list() {
-  echo 'cdf_list'
+  if [[ -f ~/.cdf_favorites_list.sh ]]; then
+    echo ~/.cdf_favorites_list.sh
+  else 
+    echo No favorites
+  fi
 }
 
 # -a
