@@ -54,7 +54,10 @@ cdf_delete() {
 # no flag
 # moves to the selected directory
 cdf_go() {
-  echo "cdf_go"
+  # get address from favorites list
+  SELDIR=$(awk "/^${1} => /" ~/.cdf_favorites.txt | cut -d " " -f 3)
+
+  cd $SELDIR
 }
 
 # routes commands
@@ -66,7 +69,7 @@ cdf() {
   elif [[ $1 == "-d" ]]; then
     cdf_delete
   else
-    cdf_go
+    cdf_go $1
   fi
 }
 
