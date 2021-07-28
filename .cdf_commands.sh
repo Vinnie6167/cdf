@@ -33,13 +33,22 @@ cdf_add() {
   echo "${NEWNICK} => ${NEWFAV}" >> ~/.cdf_favorites.txt
 
   # give feedback
-  echo "cdf_add"
+  echo "added ${NEWNICK}"
 }
 
 # -d
 # removes from the list of favorited directories
 cdf_delete() {
-  echo "cdf_delete"
+  # get directory
+  read -p "Directory to delete: " DELDIR
+
+  # remove if it exists
+  sed -i "/^${DELDIR} /d" ~/.cdf_favorites.txt
+
+  # delete the favorites file if it is empty
+  if [[ ! -s ~/.cdf_favorites.txt ]]; then
+    rm ~/.cdf_favorites.txt
+  fi
 }
 
 # no flag
