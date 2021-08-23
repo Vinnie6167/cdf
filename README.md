@@ -7,7 +7,7 @@ Custom commands for the bash shell which enable the user to quickly switch betwe
 3. Add the following line to your .bashrc
 
         source ~/.cdf_commands.sh
-4. bash
+4. Restart your shell
 
 ## Commands
     cdf -l
